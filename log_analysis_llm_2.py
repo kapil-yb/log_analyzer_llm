@@ -142,9 +142,20 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 """
-Sample run:
+Sample query run:
 
-% curl "http://localhost:8000/query?query=$(echo "What are the different yugabyte deployment options?" | sed 's/ /%20/g')"
+% curl -s "http://localhost:8000/query?query=$(echo "What are the different yugabyte deployment options?" | sed 's/ /%20/g')" | jq -r '.response'
+ Yugabyte offers several deployment options to suit various use cases and environments. Here are some of them:
 
-{"response":" Yugabyte offers various deployment options to suit your application's requirements. Here are some deployment options you can consider:\n\n1. Cloud Deployment: You can deploy YugabyteDB in public cloud providers like AWS, Azure, and Google Cloud Platform (GCP). This option allows for quick scalability, automatic patching, and ease of management.\n\n2. On-premises/Private Cloud Deployment: If you prefer to maintain control over your infrastructure, you can deploy YugabyteDB on your own private cloud or on-premises. This can be useful for applications with strict data locality requirements.\n\n3. Kubernetes Deployment: For containerized environments, you can deploy YugabyteDB on Kubernetes clusters. This allows for seamless scaling and management of your database along with your applications.\n\n4. Multi-region Deployment: To reduce latency and improve performance in a geographically dispersed environment, you can configure YugabyteDB to operate across multiple regions. This ensures that users get fast responses from the nearest region while maintaining data consistency.\n\n5. Edge Computing Deployment: For applications requiring low-latency access to data at the edge, such as IoT or real-time analytics, you can deploy YugabyteDB on edge devices like Raspberry Pi or Azure IoT Edge. This allows for fast processing of data close to where it is generated.\n\n6. Hybrid Cloud Deployment: If your application requires a combination of on-premises, private cloud, and public cloud resources, you can opt for a hybrid deployment model. This model allows you to take advantage of the benefits of each environment while maintaining data consistency across them."}%
+1. Cloud Native: Yugabyte can be deployed on popular cloud platforms like AWS, Azure, Google Cloud Platform (GCP), Alibaba Cloud, and others. This allows you to leverage the scalability, reliability, and security benefits provided by these platforms.
+
+2. On-premises: If you prefer to keep your data center or have specific compliance requirements, Yugabyte can be deployed on-premises.
+
+3. Kubernetes: As a cloud-native database, YugabyteDB is highly compatible with Kubernetes environments, making it easier to scale and manage your database alongside other applications in a containerized environment.
+
+4. Geo-distributed deployments: For low latency and high availability across multiple regions, Yugabyte allows you to deploy clusters spanning multiple data centers. This improves performance and reliability for geographically dispersed applications.
+
+5. Edge computing: In edge computing scenarios, where IoT devices or remote locations require local processing, Yugabyte can be deployed to manage data at the edge.
+
+6. Hybrid deployments: A hybrid deployment strategy combines on-premises and cloud resources for greater flexibility and scalability in a single topology. You can seamlessly extend your on-premises deployment to the cloud or vice versa, as needed.
 """"
