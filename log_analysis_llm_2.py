@@ -153,5 +153,7 @@ Running the same question against the RAG implementation, and we can get a bette
 
 % curl -s "http://localhost:8000/query?query=$(echo "What is xCluster?" | sed 's/ /%20/g')" | jq -r '.response'
 
-xCluster is a highly scalable and distributed data management system developed by Yugabyte. It provides PostgreSQL-compatible SQL APIs (YSQL) and Apache Cassandra CQL-like APIs (YCQL), allowing applications to easily connect and interact with the database using various client libraries. This enables developers to build globally-distributed, horizontally-scalable, and highly available applications on YugabyteDB. The system is designed for high performance, fault tolerance, and data consistency in distributed environments
+xCluster is a highly scalable and distributed data management system developed by Yugabyte. It provides PostgreSQL-compatible SQL APIs (YSQL) and Apache Cassandra CQL-like APIs (YCQL), allowing
+applications to easily connect and interact with the database using various client libraries. This enables developers to build globally-distributed, horizontally-scalable, and highly available applications
+on YugabyteDB. The system is designed for high performance, fault tolerance, and data consistency in distributed environments
 """"
