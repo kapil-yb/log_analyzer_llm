@@ -142,20 +142,16 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 """
-Sample query run:
+Asking a question directly to LLM model, which was not able to determine xcluster
 
-% curl -s "http://localhost:8000/query?query=$(echo "What are the different yugabyte deployment options?" | sed 's/ /%20/g')" | jq -r '.response'
- Yugabyte offers several deployment options to suit various use cases and environments. Here are some of them:
+% ollama run mistral "What is xCluster?"
+ I'm not aware of a specific tool or technology called "xCluster". It could be that it's an internal project, a
+proprietary product, or a typo. If you meant another term like Kubernetes cluster, Hadoop cluster, or any other data
+processing clusters, please let me know, and I'll do my best to provide accurate information about them!
 
-1. Cloud Native: Yugabyte can be deployed on popular cloud platforms like AWS, Azure, Google Cloud Platform (GCP), Alibaba Cloud, and others. This allows you to leverage the scalability, reliability, and security benefits provided by these platforms.
+Running the same question against the RAG implementation, and we can get a better response this time. 
 
-2. On-premises: If you prefer to keep your data center or have specific compliance requirements, Yugabyte can be deployed on-premises.
+% curl -s "http://localhost:8000/query?query=$(echo "What is xCluster?" | sed 's/ /%20/g')" | jq -r '.response'
 
-3. Kubernetes: As a cloud-native database, YugabyteDB is highly compatible with Kubernetes environments, making it easier to scale and manage your database alongside other applications in a containerized environment.
-
-4. Geo-distributed deployments: For low latency and high availability across multiple regions, Yugabyte allows you to deploy clusters spanning multiple data centers. This improves performance and reliability for geographically dispersed applications.
-
-5. Edge computing: In edge computing scenarios, where IoT devices or remote locations require local processing, Yugabyte can be deployed to manage data at the edge.
-
-6. Hybrid deployments: A hybrid deployment strategy combines on-premises and cloud resources for greater flexibility and scalability in a single topology. You can seamlessly extend your on-premises deployment to the cloud or vice versa, as needed.
+xCluster is a highly scalable and distributed data management system developed by Yugabyte. It provides PostgreSQL-compatible SQL APIs (YSQL) and Apache Cassandra CQL-like APIs (YCQL), allowing applications to easily connect and interact with the database using various client libraries. This enables developers to build globally-distributed, horizontally-scalable, and highly available applications on YugabyteDB. The system is designed for high performance, fault tolerance, and data consistency in distributed environments
 """"
